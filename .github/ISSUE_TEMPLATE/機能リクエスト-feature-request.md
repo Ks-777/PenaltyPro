@@ -1,7 +1,7 @@
 ---
 name: 機能リクエスト/Feature request
 about: feature request is here
-title: コマンドの提案の場合はラベルに新コマンドを追加してください。
+title: タイトルをここに/title here
 labels: 新機能/new feature, 要チェック/want check
 assignees: Ks-777
 

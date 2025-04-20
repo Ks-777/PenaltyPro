@@ -1,0 +1,11 @@
+{
+  "name": "src",
+  "version": "1.0.0-alpha",
+  "description": "[DiscordBot]BOT that makes punishment easy to use and advanced.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KS-777",
+  "license": "MIT"
+}

@@ -1,9 +1,9 @@
 ---
 name: バグ報告/Bug report
-about: このバグについての情報(簡潔に)/about this bug
-title: "[BUG]"
-labels: バグ/bug, サポートが必要/help wanted
-assignees: ''
+about: bug report is here
+title: タイトルをここに/title here
+labels: バグ/bug, サポートが必要/help wanted, 要チェック/want check
+assignees: Ks-777
 
 ---
 

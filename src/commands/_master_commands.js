@@ -1,5 +1,9 @@
 // commandsと書いてありますが全てのインタラクション処理がここを経由します
-const help = require('./help.js');
+const helpFile = require('./help.js');
+const pingFile = require('./ping.js');
+const setupFile = require('./setup.js');
+const scoreFile = require('./score.js');
+const settingsFile = require('./settings.js');
 
 const userCommandTimestamps = {};
 const userLastCommand = {};
@@ -34,8 +38,16 @@ async function handleInteraction(interaction) {
             userLastCommand[userId] = { timestamp: now, command: interaction.commandName };
 
             // !コマンド処理!
-            if (interaction.commandName === help.data.name) {
-                await help.execute(interaction);
+            if (interaction.commandName === helpFile.data.name) {
+                await helpFile.execute(interaction);
+            } else if (interaction.commandName === pingFile.data.name) {
+                await pingFile.execute(interaction);
+            } else if (interaction.commandName === setupFile.data.name) {
+                await setupFile.execute(interaction);
+            } else if (interaction.commandName === scoreFile.data.name) {
+                await scoreFile.execute(interaction);
+            } else if (interaction.commandName === settingsFile.data.name) {
+                await settingsFile.execute(interaction);
             }
         }
     } catch (error) {

@@ -1,5 +1,9 @@
-// 注意：コマンドの登録は自動で行いません。各自で node deploy_commands.js などで実行してください。
-const version = '1.0.0-alpha';
+// 注意:コマンドの登録は自動で行いません。各自で node deploy_commands.js などで実行してください。
+//      また、.envにtoken=(disocrdbotのトークン)とBotのUserID(BotID)をappid=(BotID)として指定してください。
+require('dotenv').config();
+const { QuickDB} = require('quick.db');
+const db = new QuickDB({ filePath: './db/db.sqlite' });
+const version = '1.0.0-alpha.02';
 const token = process.env.token;
 const { Client, GatewayIntentBits, Events, ChannelType, EmbedBuilder } = require('discord.js');
 const client = new Client({
@@ -25,7 +29,6 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log(`Ready ${client.user.tag}`);
-    msgCounter.initMsgCounter(client);
     const members = memberCount();
     const servers = serverCount();
     // ステータスの定期更新
@@ -37,7 +40,9 @@ client.on('ready', () => {
 });
 
 // 各処理の読み込み
-// コマンド(インタラクション)関係
+// messageCreate
+const messageHandler = require('./message/_master_message.js');
+// intractionCreate(commands)
 const commandHandler = require('./commands/_master_commands.js');
 client.on(Events.InteractionCreate, async (interaction) => {
     try {
@@ -66,4 +71,3 @@ function serverCount() {
 }
 // ログイン(起動)
 client.login(token);
-console.log(`start bot ${client.user.tag}`);

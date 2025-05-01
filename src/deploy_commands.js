@@ -1,5 +1,7 @@
 require('dotenv').config();
+// .envで指定してください！！！
 const token = process.env.token;
+const appid = process.env.appid;
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST, Routes } = require('discord.js');
 const rest = new REST({ version: '10' }).setToken(token);
@@ -11,6 +13,14 @@ const commands = [
     new SlashCommandBuilder()
     .setName('ping')
     .setDescription('Replies with Pong!/Pingを取得します')
+    .toJSON(),
+    new SlashCommandBuilder()
+    .setName('setup')
+    .setDescription('セットアップまたはユーザーinit処理を開始')
+    .toJSON(),
+    new SlashCommandBuilder()
+    .setName('score')
+    .setDescription('(処罰に関する)スコアを確認します')
     .toJSON(),
     /* normal command registration template
 
@@ -25,7 +35,7 @@ const commands = [
 async function main() {
     try {
         await rest.put(
-            Routes.applicationCommands('1251167658167111691'),
+            Routes.applicationCommands(appid),
             { body: commands }
         );
         console.log('コマンドを登録しました。/Successfully registered application commands.');

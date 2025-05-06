@@ -3,7 +3,7 @@
 require('dotenv').config();
 const { QuickDB} = require('quick.db');
 const db = new QuickDB({ filePath: './db/db.sqlite' });
-const version = '1.0.0-alpha.02';
+const version = '1.0.0-alpha.03';
 const token = process.env.token;
 const { Client, GatewayIntentBits, Events, ChannelType, EmbedBuilder } = require('discord.js');
 const client = new Client({
@@ -37,6 +37,9 @@ client.on('ready', () => {
             name: `${client.ws.ping}ms|v${version}|M:${members},S:${servers}|/help`
         });
     }, 5000);
+
+    // get ip (tor,proxy)
+    
 });
 
 // 各処理の読み込み

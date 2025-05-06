@@ -4,6 +4,9 @@ const pingFile = require('./ping.js');
 const setupFile = require('./setup.js');
 const scoreFile = require('./score.js');
 const settingsFile = require('./settings.js');
+const verifypanelFile = require('./verifypanel.js');
+
+const verify_siteFile = require('../func/verify.site.js');
 
 const userCommandTimestamps = {};
 const userLastCommand = {};
@@ -48,6 +51,15 @@ async function handleInteraction(interaction) {
                 await scoreFile.execute(interaction);
             } else if (interaction.commandName === settingsFile.data.name) {
                 await settingsFile.execute(interaction);
+            } else if (interaction.commandName === verifypanelFile.data.name) {
+                await verifypanelFile.execute(interaction);
+            }
+        }
+
+        // !ボタン・メニュー処理!
+        if (interaction.isButton()) {
+            if (interaction.customId === 'verify') {
+                await verify_siteFile.execute(interaction);
             }
         }
     } catch (error) {

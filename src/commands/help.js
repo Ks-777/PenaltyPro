@@ -12,7 +12,8 @@ module.exports = {
 			.setDescription('コマンドは基本的にスラッシュコマンドです。')
 			.addFields(
 			{ name: '/help', value: '(これ)BOTのコマンドの一覧を表示します。' },
-			{ name: '/space', value: 'すべての文字の間にスペースを入れて主張します' },
+			{ name: '/setup', value: '**【必ず実行】**BOTのセットアップを開始します。' }
+            ,
             )
             .setTimestamp(new Date());
         const morehelp_button = new ButtonBuilder()

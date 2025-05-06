@@ -22,6 +22,18 @@ const commands = [
     .setName('score')
     .setDescription('(処罰に関する)スコアを確認します')
     .toJSON(),
+    new SlashCommandBuilder()
+    .setName('verifypanel')
+    .setDescription('VerifyPanelの設定を行います')
+    .addRoleOption(option =>
+        option.setName('role_add')
+        .setDescription('認証後付けるロールを選択 / verify add role')
+        .setRequired(true)
+    )
+    .addRoleOption(option =>
+        option.setName('role_remove')
+        .setDescription('認証後外すロールを選択 / verify remove role')
+    ),
     /* normal command registration template
 
     new SlashCommandBuilder()

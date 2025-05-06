@@ -50,11 +50,11 @@ module.exports = {
                 .setAuthor({ name: 'Create By KS' })
                 .setDescription('**STATUS:** SUCCESS! / セットアップ完了')
                 .setFields(
-                    { name: 'Wick Support', value: 'TRUE\n/add-support', inline: true },
-                    { name: 'Automod Support', value: 'TRUE\n/add-support', inline: true },
-                    { name: 'Defalt Score', value: '100\n/settings defalt-score', inline: true },
-                    { name: 'Language', value: '**【変更不可】**\nJapanese(ja)\n/settings lang', inline: true },
-                    { name: 'Score', value: 'HARD\n/settings score', inline: true },
+                    { name: 'Wick Support', value: 'TRUE\n/settings', inline: true },
+                    { name: 'Automod Support', value: 'TRUE\n/settings', inline: true },
+                    { name: 'Defalt Score', value: '100\n/settings', inline: true },
+                    { name: 'Language', value: '**【変更不可】**\nJapanese(ja)\n/settings', inline: true },
+                    { name: 'Score', value: 'HARD\n/settings', inline: true },
                 )
                 .setTimestamp(new Date());
             await interaction.editReply({ embeds: [setupEmbed_after] }); 
